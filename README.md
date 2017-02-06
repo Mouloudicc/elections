@@ -10,5 +10,6 @@ Application Java en mode console qui permet de calculer le nombre de sièges qu'
 * déterminer la liste gagnante des élection.
 
 ## Installation
-Télécharger 
+Télécharger l'archive du dépot
+
 ## Utilisation
