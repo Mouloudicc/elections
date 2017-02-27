@@ -1,161 +1,139 @@
-package istia.st.elections;
+package elections.dao.entities;
 
-import java.io.*;
-/**
- * @author Viorel FLORICA
- * */
+
 public class ListeElectorale {
+	
+		private String nom;
+		private int id;
+		private int voix;
+		private int sieges;
+		private boolean elimine;
+		private float moyenneListe;
+		
+		public ListeElectorale(){}
+		
+		
+		/**
+		 * 
+		 * @param nom String : Nom de la liste
+		 * @param voix int : Nombre de voix
+		 * @param sieges int : Nombre de sieges
+		 * @param elimine boolean : Etat elimine ou non 
+		 */
 
-	/**
-	 * identité de la liste
-	 */
-	private int id;
-	
-	/**
-	 * nom de la liste
-	 */
-	private String nom;
-	
-	/**
-	 * nombre de voix de la liste
-	 */
-	private int voix;
-	
-	/**
-	 * nombre de sièges de la liste
-	 */
-	private int sieges;
-	
-	/**
-	 * indique si la liste est éliminée ou non
-	 */
-	private boolean elimine;
-	
+		public ListeElectorale(int id, String nom, int voix, int sieges, boolean elimine){
+			
+			this.id = id;
+			this.nom = nom;
+			this.voix = voix;
+			this.sieges = sieges;
+			this.elimine = elimine;
+		}
 
-	/**
-	 * constructeur par défaut
-	 */
-	public ListeElectorale(){
-	}
-	
-	/**
-	 * 
-	 * @param id int : identité de la liste
-	 * @param nom String : le nom de la liste
-	 * @param voix int : son nombre de voix
-	 * @param sieges int : son nombre de sieges
-	 * @param elimine boolean : son état éliminé ou non
-	 */
-	public ListeElectorale(int id, String nom, int voix, int sieges, boolean elimine){
-		this.setId(id);
-		this.setNom(nom);
-		this.setVoix(voix);
-		this.setSieges(sieges);
-		this.setElimine(elimine);
-	}
-	
-	/**
-	 * 
-	 * @return int : l'identifiant de la liste
-	 */
-	public int getId() {
-		return id;
-	}
-	
-	/**
-	 * initialise l'identifiant de liste
-	 * @param id int : identifiant de la liste
-	 * @throws ElectionsException si id<1
-	 */
-	public void setId(int id) {
-		if(id<1){
-			throw new ElectionsException("L'id ne peut être inférieur à 1!");
+
+		/**
+		 * @return int : Identifiant de la liste
+		 */
+		
+		public int getId() {
+			return id;
 		}
-		this.id = id;
-	}
-	
-	/**
-	 * 
-	 * @return String : le nom de la liste
-	 */
-	public String getNom() {
-		return nom;
-	}
-	
-	/**
-	 * initialise le nom de la liste
-	 * @param nom String : nom de la liste
-	 * @throws ElectionsException si le nom est vide ou blanc
-	 */
-	public void setNom(String nom) {
-		if (nom.trim() == ""){
-			throw new ElectionsException("Le nom de la liste ne peut être vide!");
+
+		/**
+		 * 
+		 * @param id int : Identifiant de la liste
+		 * @throws ElectionsException si id<1
+		 */
+		public void setId(int id) {
+			this.id = id;
 		}
-		this.nom = nom;
-	}
-	
-	/**
-	 * 
-	 * @return int : le nombre de voix de la liste
-	 */
-	public int getVoix() {
-		return voix;
-	}
-	
-	/**
-	 * initialise le nombre de voix de la liste
-	 * @param voix int : le nombre de voix de la liste
-	 * @throws ElectionsException si voix<0
-	 */
-	public void setVoix(int voix) {
-		if (voix<0){
-			throw new ElectionsException("Le nombre de voix ne peut être négatif!");
+
+		/**
+		 * @return String : Retourne le nom de la liste
+		 */
+		public String getNom() {
+			return nom;
 		}
-		this.voix = voix;
-	}
-	
-	/**
-	 * 
-	 * @return int : le nombre de sièges de la liste
-	 */
-	public int getSieges() {
-		return sieges;
-	}
-	
-	/**
-	 * fixe le nombre de sièges de la liste
-	 * @param sieges int : le nombre de sièges de la liste
-	 * @throws ElectionsException si sieges<0
-	 */
-	public void setSieges(int sieges) {
-		if(sieges < 0){
-			throw new ElectionsException("Le nombre de sièges ne peut être < 0");
+		
+		/**
+		 * 
+		 * @param nom String : Nom de la liste
+		 * @throws ElectionsException si le nom est vide ou blanc
+		 */
+		public void setNom(String nom) throws ElectionsException {
+			if(nom.isEmpty()) throw new ElectionsException(1,"Veuillez introduire une chaine de caractère pour le nom");
+			this.nom = nom;
 		}
-		this.sieges = sieges;
-	}
-	
-	/**
-	 * 
-	 * @return boolean : valeur du champ elimine
-	 */
-	public boolean isElimine() {
-		return elimine;
-	}
-	
-	/**
-	 * modifie l'état éliminé de la liste
-	 * @param elimine boolean : son état éliminé ou non
-	 */
-	public void setElimine(boolean elimine) {
-		this.elimine = elimine;
-	}
-	
-	/**
-	 * @return String : identité de la liste électorale
-	 */
-	@Override
-	public String toString() {
-		return "[" + id + "," + nom + "," + voix + "," + sieges + ","
-				+ elimine + "]";
-	}
+		
+		/**
+		 * 
+		 * @return int : Nombre de voix de la liste
+		 */
+		public int getVoix() {
+			return voix;
+		}
+		
+		/**
+		 * 
+		 * @param voix int : Nombre de voix de la liste 
+		 */
+		public void setVoix(int voix) throws ElectionsException {
+			if(voix < 0) throw new ElectionsException(2, "# de voix  doit être >=0");
+			this.voix = voix;
+		}
+		
+		/**
+		 * 
+		 * @return int : Nombre de sieges de la liste
+		 */
+		public int getSieges() {
+			return sieges;
+		}
+		
+		/**
+		 * Fixe le nbre de sieges de la liste
+		 * @param sieges int : Nbre de sieges de la liste
+		 */
+		public void setSieges(int sieges) throws ElectionsException{
+			if (sieges < 0) throw new ElectionsException(2, "Le # de sieges doit etre >= 0");
+			this.sieges = sieges;
+		}
+		
+		public void addSieges(int sieges){
+			this.sieges += sieges;
+		}
+		
+		
+		public float getMoyenneListe() {
+			return moyenneListe;
+		}
+
+
+		public void setMoyenneListe(float moyenneListe) {
+			this.moyenneListe = moyenneListe;
+		}
+		
+		/**
+		 * 
+		 * @return boolean : Retourne si liste elimine ou non
+		 */
+		public boolean isElimine() {
+			return elimine;
+		}
+
+		/**
+		 * 
+		 * @param elimine boolean 
+		 */
+
+		public void setElimine(boolean elimine) {
+			this.elimine = elimine;
+		}
+		
+		public String toString(){
+			return "La liste "+this.nom+" a obtenu "+this.voix+" voix  et "+ this.sieges + " sieges";
+		}
+		
 }
+
+
