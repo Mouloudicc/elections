@@ -1,0 +1,6 @@
+/home/rani/EclipseWorkspaces/Java/ICC/elections-04/src/main/java/elections/dao/service/ElectionsDaoFile.java
+/home/rani/EclipseWorkspaces/Java/ICC/elections-04/src/main/java/elections/dao/config/Config.java
+/home/rani/EclipseWorkspaces/Java/ICC/elections-04/src/main/java/elections/dao/service/IElectionsDao.java
+/home/rani/EclipseWorkspaces/Java/ICC/elections-04/src/main/java/elections/dao/entities/ElectionsException.java
+/home/rani/EclipseWorkspaces/Java/ICC/elections-04/src/main/java/elections/dao/entities/ListeElectorale.java
+/home/rani/EclipseWorkspaces/Java/ICC/elections-04/src/main/java/elections/metier/service/IElectionsMetier.java

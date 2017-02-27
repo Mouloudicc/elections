@@ -1,0 +1,18 @@
+<list>
+  <elections.dao.entities.ListeElectorale>
+    <nom>A</nom>
+    <id>1</id>
+    <voix>2000</voix>
+    <sieges>5</sieges>
+    <elimine>false</elimine>
+    <moyenneListe>0.0</moyenneListe>
+  </elections.dao.entities.ListeElectorale>
+  <elections.dao.entities.ListeElectorale>
+    <nom>B</nom>
+    <id>2</id>
+    <voix>1000</voix>
+    <sieges>2</sieges>
+    <elimine>false</elimine>
+    <moyenneListe>0.0</moyenneListe>
+  </elections.dao.entities.ListeElectorale>
+</list>
